@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+      DB_PORT: "5432"
+      DB_USERNAME: "postgres"
+    volumes:
+      - ktor_app:/var/lib/postgresql/data
+volumes:
+  ktor_app:
+    driver: local
